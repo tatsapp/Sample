@@ -1,0 +1,69 @@
+<ion-view>
+
+<ion-header-bar class="bar-positive head" >
+      
+       <!-- <button ui-sref="info"  class="button button-dark icon ion-information-circled"></button> -->  
+  	   <h1 class="title" align-title="center"><img ng-src="img/logo.jpg" id="logo" height="100%" /></h1>  
+       <button ng-hide="online" ng-click="showAlert()"  class="button button-energized icon ion-alert-circled nonet"></button> 
+
+ </ion-header-bar>   
+
+ <div class="bar bar-subheader bar-positive">
+	 
+	  <button ng-click="back()" style="width: 10%;max-width: 40px;" class="button button-dark icon ion-android-arrow-back"></button>
+	   <h2 class="title">Personal Informations</h2>
+	   <button ng-click="logout()" style="background-color: #FF8A80" class="button icon ion-log-out"></button>
+      
+  </div>	
+<ion-content class="padding has-subheader">
+<ion-scroll direction="y" style="height: 520px">
+<form name="myForm" novalidate>	
+    <div class="list list-inset">
+	    <label style="border-color: green;border-radius: 10px" class="item item-input item-stacked-label">
+		  <span class="input-label" style="color: #387ef5">Name</span>
+		  <input type="text" name="name" ng-model="personal.name"  pattern="[a-zA-Z\s]*" ng-minlength="3" required>
+	    </label>
+      <br>
+      <span id="sp" ng-show="myForm.name.$invalid">
+      <span ng-show="myForm.name.$error.required">*Name is required</span>
+      <span ng-show="myForm.name.$error.pattern">*Only letters are allowed</span>
+      <br>
+      <span ng-show="myForm.name.$error.minlength">*Minimum of 3 letters is required</span>    
+      </span>
+    </div>
+
+    <div class="list list-inset">
+      <ion-item style="border-color: #1B5E20;border-radius: 10px;">
+      <span class="input-label" style="color: #387ef5">Gender</span>
+      <ion-radio ng-model="personal.gender" value="male">Male</ion-radio>
+      <ion-radio ng-model="personal.gender" value="female">Female</ion-radio>
+      </ion-item>
+    </div>
+
+    <div class="list list-inset">      
+        <label style="border-color: #1B5E20;border-radius: 10px;" class="item item-input item-stacked-label"> 
+        <span class="input-label" style="color: #387ef5">Date Of Birth</span>
+        <input type="Date" ng-model="personal.dob" clearInput >
+        </label>  
+     </div>
+     
+     
+     <br>
+     <br>
+
+     <div class="row">
+       <div class="col col-offset-10"></div>
+       <div class="col col-20 col-offset-10">
+       <button  class="button button-positive" ng-disabled="myForm.$invalid" ng-click="updateUserDetails(personal)">Submit</button>
+       </div>
+       <div class="col col-offset-10"></div>
+     </div>
+     
+     <br>
+     <br>
+     
+     </form>
+     </ion-scroll>
+</ion-content>
+
+</ion-view>

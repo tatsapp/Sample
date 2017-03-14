@@ -1,0 +1,133 @@
+
+
+<ion-view ng-controller="login">
+
+  <ion-header-bar class="bar-positive head">      
+   <button ui-sref="info"  class="button button-dark icon ion-information-circled"></button>  
+   <h1 class="title" align-title="center"><img ng-src="img/logo.jpg" id="logo" height="100%" /></h1> 
+   <button ng-hide="online" ng-click="showAlert()" style="background-color: red" class="button icon ion-alert-circled nonet"></button> 
+ </ion-header-bar>   
+
+  <div class="bar bar-subheader bar-positive">
+     <h2 class="title">Registration</h2>    
+  </div>  
+
+  <ion-content class="padding has-subheader" ng-keydown="scrol()">
+  <ion-scroll direction="y" style="height: 550px">
+  <div ng-if="!browser">
+  <div id="anim">
+    <img ng-src="img/go.png" style="width: 50px;height: 50px" />
+ </div>
+    <div id="div1" class="row">
+  <div class="col col-offset-10">
+  </div> 
+  <div class="col  col-offset-">
+  <a ng--click="googleapis()" class="button button-clear button-outline"><img ng-src="img/google.png" style="height: 10%;max-height: 80px;"/></a>
+  </div>
+  <div class="col  col-offset-9">
+  </div>
+  </div>
+     <br>
+     <br>
+     <br>
+     <br>  
+  <div class="row">
+  <div class="col  col-offset-10">  
+  <a ng-click="fbLogin()" class="button button-clear button-outline"><img ng-src="img/fb.png" style="height: 10%;max-height: 80px;"/></a>
+  </div>  
+  <div class="col  col-offset-9">
+  </div>
+ <div class="col  col-offset-9">
+ <a ng-click="twitter()" class="button button-clear button-outline"><img ng-src="img/tweet.png" style="height: 10%;max-height: 80px;"/></a>
+  </div>
+  </div>
+  <br>
+  <br> 
+  <br>
+  <br>
+  <br>
+  <br>
+  <div class="row">
+  <div class="col  col-offset-10">
+  </div> 
+  <div class="col  col-offset-9">
+  <a ng-click="github()" class="button button-clear button-outline"><img ng-src="img/github.png" style="height: 10%;max-height: 80px;"/></a>
+  </div>
+  <div class="col col-offset-9">
+  </div>
+  </div>
+  <br>  
+  <br>
+  <br>
+  <!-- <ion-list>
+  <ion-item>
+  <button ng-click="next()" class="button button-icon icon ion-ios-skipforward icon-left">Next</button>
+  </ion-item>
+  <ion-item>
+  <button ng-click="ins()" class="button button-icon icon ion-ios-skipforward icon-left">Insert</button>
+  </ion-item>
+  <ion-item>
+  <button ng-click="lok()" class="button button-icon icon ion-ios-skipforward icon-left">Check</button>
+  </ion-item>
+  </ion-list> -->
+  </div>
+  <div ng-if="browser">
+  <!-- <ion-list>
+  <ion-item>
+  <button ng-click="next()" class="button button-icon icon ion-ios-skipforward icon-left">Next</button>
+  </ion-item>
+  <ion-item>
+  <button ng-click="ins()" class="button button-icon icon ion-ios-skipforward icon-left">Insert</button>
+  </ion-item>
+  <ion-item>
+  <button ng-click="test()" class="button button-icon icon ion-ios-skipforward icon-left">Test</button>
+  </ion-item>
+  </ion-list> -->
+  <div id="div1" class="row">
+  <div class="col  col-offset-10">
+  </div> 
+  <div class="col  col-offset-">
+  <a ng--click="googleLogin()" class="button button-clear button-outline"><img ng-src="img/google.png" style="height: 10%;max-height: 80px;"/></a>
+  </div>
+  <div class="col  col-offset-9">
+  </div>
+  </div>
+     <br>
+     <br>
+     <br>
+     <br>  
+  <div class="row">
+  <div class="col  col-offset-10">  
+   <a ng-click="facebookLogin()" class="button button-clear button-outline"><img ng-src="img/fb.png" style="height: 10%;max-height: 80px;"/></a> 
+  </div>  
+  <div class="col  col-offset-9">
+    <a ng-click="twitterLogin()" class="button button-clear button-outline"><img ng-src="img/tweet.png" style="height: 10%;max-height: 80px;"/></a>
+  </div>
+ <div class="col  col-offset-9">
+  <a ng-click="githubLogin()" class="button button-clear button-outline"><img ng-src="img/github.png" style="height: 10%;max-height: 80px;"/> <!-- <script type="in/Login"> --><!-- </script> --></a>
+  </div>
+  </div>
+  <br>
+  <br> 
+  <br>
+  <br>
+  <br>
+  <br>
+  <div class="row">
+  <div class="col  col-offset-10">
+  <!-- <a ng-click="linkedinLogin()" class="button button-clear button-outline col1"><img ng-src="img/linkedin.jpg" style="height: 10%;max-height: 80px;"/></a> -->
+  </div> 
+  <div class="col  col-offset-9">
+  <a ng-click="instaLogin()" class="button button-clear button-outline"><img ng-src="img/ig.png" style="height: 10%;max-height: 80px;" /></a>
+  </div>
+  <div class="col col-offset-9">
+  <!-- <a class="button button-clear button-outline"><img ng-src="img/snapchat.png" style="height: 10%;max-height: 80px;"/></a> -->
+  </div>
+  </div>
+  <br>  
+  <br>
+  <br>
+  </div>
+  </ion-scroll>
+  </ion-content>
+</ion-view>       

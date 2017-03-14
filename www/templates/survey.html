@@ -1,0 +1,106 @@
+<ion-view ng-controller="login">
+
+<ion-header-bar class="bar-positive head" >
+      
+       <button ui-sref="info"  class="button button-dark icon ion-information-circled"></button>  
+  	   <h1 class="title" align-title="center"><img ng-src="img/logo.jpg" id="logo" height="100%" /></h1>  
+       <button ng-hide="online" ng-click="showAlert()"  class="button button-energized icon ion-alert-circled nonet"></button> 
+
+ </ion-header-bar>   
+
+ <div class="bar bar-subheader bar-positive">
+	 
+	  <button ng-click="back()" style="width: 10%;max-width: 40px;" class="button button-dark icon ion-android-arrow-back"></button>
+	   <h2 class="title">Product Review</h2>
+	   <!-- <button ng-click="filter()" style="background-color: #FF8A80;margin-left: 90%;" class="button icon ion-funnel"></button> -->
+	   <button ng-click="logout()" style="background-color: #FF8A80" class="button icon ion-log-out"></button>
+      
+  </div>	
+
+	<ion-content class="padding has-subheader has-footer">
+	<ion-scroll direction="y" style="height: 520px">
+	<div class="list card">
+	<div  class="item" ng-repeat="product in surveyList | filter : {title: surnum} " >
+	<div class="col col-offset-90">	
+		<button ng-click="shareApp()" class="button button-clear button-positive icon ion-android-share-alt"></button>
+	</div>
+	
+	<div class="row">
+	<div class="col">
+	<img ng-src="{{product.img}}">
+	</div>
+	<div class="col col-75 item-text-wrap">
+	<h2>{{product.title}}</h2>
+	<p>{{product.desc}}</p>
+	</div>
+	</div>
+	</div>
+	</div>
+
+	<div class="list" style="border-radius: 10px;border-color: green">
+	<div class="item" style="border-radius: 10px;border-color: #E3F2FD">
+		<ionic-ratings ratingsobj="ratingsObject" index='$index'></ionic-ratings>
+	</div>	
+	<div class="item item-toggle" style="text-align: center;border-radius: 10px;border-color: #E3F2FD">
+	Did you like it
+	<label class="toggle">
+	<input type="checkbox" ng-click="liked(like.selected)" ng-model="like.selected">	
+	<div class="track">
+	<div class="handle"></div>	
+	</div>
+	</label>	
+	</div>
+	<div class="item item-toggle" style="text-align: center;border-radius: 10px;border-color: #E3F2FD">
+	Will you purchase this product in future
+	<label class="toggle">
+	<input type="checkbox" ng-click="futur(future.selected)" ng-model="future.selected">	
+	<div class="track">
+	<div class="handle"></div>	
+	</div>
+	</label>	
+	</div>
+	<div class="item item-toggle" style="text-align: center;border-radius: 10px;border-color: #E3F2FD">
+	Do you like to have coupons
+	<label class="toggle">
+	<input type="checkbox" ng-click="coupon(coupons.selected)" ng-model="coupons.selected">	
+	<div class="track">
+	<div class="handle"></div>	
+	</div>
+	</label>	
+	</div>
+	</div>
+	<br>
+	
+	<!-- ng-click="submitSurvey(surnum)" -->
+	<button ng-click="submitSurvey(surnum)" class="button button-positive" style="margin-left: 50%">Submit</button>
+	
+	<br>
+	<br>
+	<br>
+	<br>
+	</ion-scroll>
+	</ion-content>
+
+	   <!-- <ion-footer-bar>
+	  <div class="tabs tabs-icon-top tabs-positive" ng-controller="login">
+	  	<a ng-click="home()" class="tab-item" > 
+	  		<i class="icon ion-home"></i>Home
+	  	</a>
+	  	<a ng-click="cart()" class="tab-item">
+	  		{{chckLength}}
+	  		<i class="icon ion-android-cart">
+	  			
+	  		</i>Cart
+	  	</a>
+	  	<a ui-sref='settings' class="tab-item" > 
+	  		<i class="icon ion-gear-b"></i>Settings
+	  	</a>
+	  	<a ui-sref='history' class="tab-item"> 
+	  		<i class="icon ion-android-time"></i>History
+	  	</a>
+	  </div> 
+	</ion-footer-bar> -->
+</ion-view>
+
+
+

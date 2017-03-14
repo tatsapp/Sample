@@ -1,0 +1,40 @@
+<ion-view ng-controller="login">
+<ion-header-bar class="bar-positive head" >
+       <button ui-sref="info"  class="button button-dark icon ion-information-circled"></button>  
+  	   <h1 class="title" align-title="center"><img ng-src="img/logo.jpg" id="logo" height="100%" /></h1>  
+       <button ng-hide="online" ng-click="showAlert()"  class="button button-energized icon ion-alert-circled nonet"></button> 
+ </ion-header-bar>   
+ <div class="bar bar-subheader bar-positive">
+	  <h2 class="title">{{surnum}}</h2>
+  </div>	
+
+	<ion-content class="padding has-subheader has-footer">
+	<ion-scroll direction="y" style="height: 520px">
+	<div class="list card">
+	<div  class="item" ng-repeat="product in pastList | filter : {title: surnum} " >
+	<div class="col col-offset-90">	
+		<button ng-click="shareApp()" class="button button-clear button-positive icon ion-android-share-alt"></button>
+	</div>
+	<div class="row">
+	<div class="col">
+	<img ng-src="{{product.img}}">
+	</div>
+	<div class="col col-75 item-text-wrap">
+	<h2>{{product.title}}</h2>
+	<p>{{product.desc}}</p>
+	</div>
+	</div>
+	</div>
+	</div>
+	<br>
+	<!-- <button ng-click="submitSurvey(surnum)" class="button button-positive" style="margin-left: 50%">Submit</button> -->
+	<br>
+	<br>
+	<br>
+	<br>
+	</ion-scroll>
+	</ion-content>
+</ion-view>
+
+
+

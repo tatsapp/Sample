@@ -1,0 +1,30 @@
+<ion-view ng-controller="login">
+<ion-header-bar >
+<!-- <button ng-click="clearFilter()" class="button button-positive button-clear">Clear all</button> -->
+<h1 class="title" style="color: #387ef5">Filter</h1>
+<button class="button button-positive icon ion-funnel"></button>
+</ion-header-bar>
+<ion-content class="padding has-footer">
+<ion-scroll direction="y" style="height: 520px">
+<div class="list">
+<div class="item item-divider" ng-model="ist" style="background-color: #387ef5">Brand</div>
+<div class="item">
+<ion-checkbox ng-repeat="brand in brands" ng-if="chosBrand.indexOf(brand.brand_name) != -1" ng-checked="true" ng-model="brand.selected" ng-click="appFilterBrand(brand.brand_name,brand.selected)">{{brand.brand_name}}</ion-checkbox>
+<ion-checkbox ng-repeat="brand in brands" ng-if="! (chosBrand.indexOf(brand.brand_name) != -1)" ng-model="brand.selected" ng-click="appFilterBrand(brand.brand_name,brand.selected)">{{brand.brand_name}}</ion-checkbox>
+</div>
+</div>
+<div class="list">
+<div class="item item-divider" ng-model="inst" style="background-color: #387ef5">Interests</div>
+<div class="item">
+<ion-checkbox ng-repeat="interest in interests" ng-if="chosInterests.indexOf(interest.interest_name) != -1" 
+ ng-checked="true" ng-model="interest.selected" ng-click="appFilterInterest(interest.interest_name,interest.selected)">{{interest.interest_name}}</ion-checkbox>
+ <ion-checkbox ng-repeat="interest in interests" ng-if="chosInterests.indexOf(interest.interest_name) == -1" 
+  ng-model="interest.selected" ng-click="appFilterInterest(interest.interest_name,interest.selected)">{{interest.interest_name}}</ion-checkbox>
+</div>
+</div>
+</ion-scroll>
+</ion-content>
+<ion-footer-bar style="padding-left:50% ">
+	<button ng-click="home(hem)" class="button button-positive">Ok</button>
+</ion-footer-bar>
+</ion-view>

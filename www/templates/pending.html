@@ -1,0 +1,72 @@
+<ion-view ng-controller="login">
+<ion-header-bar class="bar-positive head"> 
+       <!-- <button ui-sref="info"  class="button button-dark icon ion-information-circled"></button> -->  
+  	   <h1 class="title" align-title="center"><img ng-src="img/logo.jpg" id="logo" height="100%" /></h1>  
+       <button ng-hide="online" ng-click="showAlert()"  class="button button-energized icon ion-alert-circled nonet"></button> 
+ </ion-header-bar>   
+ <div class="bar bar-subheader bar-positive">	 
+	  <button ng-click="back()" style="width: 10%;max-width: 40px;" class="button button-dark icon ion-android-arrow-back"></button>
+	   <h2 class="title">Pending Surveys</h2>
+	   <button ng-click="logout()" style="background-color: #FF8A80" class="button icon ion-log-out"></button>
+  </div>	
+<ion-content class="padding has-subheader has-footer">
+	<ion-scroll direction="y" style="height: 520px">
+	<br>
+	<div ng-if="surveyList.length">
+	<div class="list card">
+	<div  class="item item-text-wrap" ng-repeat="product in surveyList" >
+	<div class="row">
+	<div class="col">
+	<img ng-src="{{product.img}}">
+	</div>
+	<div class="col">
+	<h2><a href="#/survey/{{product.title}}" target="_parent" id="order">{{product.title}}</a></h2>
+	<p><a href="#/survey/{{product.title}}" target="_parent" id="order">{{product.desc | limitTo : 50}}{{product.desc.length > 50 ? '&hellip;' : ''}}</a></p>
+	</div>
+	<div class="col col-offset-20">
+	<div class="row mydis">
+		<ionic-ratings ratingsobj='ratingsObject' index='$index'></ionic-ratings>
+	</div>
+	<br>
+	<!-- <div class="row">
+	<button class="button-clear"><a href="#/survey/{{product.title}}" class="button button-balanced icon ion-ios-list button-clear"></a></button>
+	</div> -->
+	</div>
+	</div>
+	</div>
+	</div>
+	<!-- <button class="button button-assertive" style="margin-left: 50%;">Complete Survey</button> -->
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	</div>
+	<div ng-if="!surveyList.length" style="text-align: center;">
+	<br>
+	<br>
+	<br>
+		<img ng-src="img/empty_survey.jpg">
+	</div>
+	<br>
+	</ion-scroll>
+ </ion-content>
+<!--  <ion-footer-bar>
+  <div class="tabs tabs-icon-top tabs-positive">
+    <a ng-click="home(hem)" class="tab-item" >
+      <i class="icon ion-home"></i>Home
+    </a>
+    <a ng-click="cart()" class="tab-item" ng-model="chckLength">{{chckLength}}
+      <i class="icon ion-android-cart">
+      </i>Cart
+    </a>
+    <a  href='#/settings' class="tab-item" > 
+      <i class="icon ion-gear-b"></i>Settings
+    </a>
+    <a style="color: #18FFFF" class="tab-item"> 
+      <i class="icon ion-android-time"></i>History
+    </a>
+  </div> 
+</ion-footer-bar> -->
+<!-- href='#/settings/{{chose}}' -->
+</ion-view>

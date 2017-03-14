@@ -1,0 +1,29 @@
+<ion-view>
+<ion-header-bar class="bar-positive head" >
+       <!-- <button ui-sref="info"  class="button button-dark icon ion-information-circled"></button> -->  
+  	   <h1 class="title" align-title="center"><img ng-src="img/logo.jpg" id="logo" height="100%" /></h1>  
+       <button ng-hide="online" ng-click="showAlert()"  class="button button-energized icon ion-alert-circled nonet"></button> 
+ </ion-header-bar>   
+ <div class="bar bar-subheader bar-positive">
+	  <button ng-click="back()" style="width: 10%;max-width: 40px;" class="button button-dark icon ion-android-arrow-back"></button>
+	   <h2 class="title">Interests</h2>
+	   <button ng-click="logout()" style="background-color: #FF8A80" class="button icon ion-log-out"></button>
+  </div>	
+<ion-content class="padding has-subheader">
+<ion-scroll direction="y" style="height: 520px">
+<ion-list ng-repeat="interest in interests">
+<div ng-if="selectedInterest.indexOf(interest.interest_name) != -1">
+	<ion-toggle ng-click="selInterest(interest.interest_name,interest.selected)" ng-checked="true" ng-model="interest.selected" toggle-class="calm">{{interest.interest_name}}</ion-toggle>
+</div>
+<div ng-if="selectedInterest.indexOf(interest.interest_name) == -1">
+<ion-toggle ng-click="selInterest(interest.interest_name,interest.selected)" ng-model="interest.selected" toggle-class="calm">{{interest.interest_name}}</ion-toggle>	
+</div>
+</ion-list>
+<br>
+<br>
+<button ng-click="appInterest()" class="button button-positive" style="margin-left: 50%">Apply</button>
+<br>
+<br>
+</ion-scroll>
+</ion-content>
+</ion-view>

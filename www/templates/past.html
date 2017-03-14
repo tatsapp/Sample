@@ -1,0 +1,62 @@
+<ion-view ng-controller="login">
+ <ion-header-bar class="bar-positive">
+   <h1 class="title center"><img ng-src="img/logo.jpg" id="logo" height="100%" /></h1>
+ </ion-header-bar>
+ <div class="bar bar-subheader bar-positive">
+   <button ng-click="back()" style="width: 10%;max-width: 40px;" class="button button-dark icon ion-android-arrow-back"></button>
+   <h2 class="title">Past Orders</h2>
+   <button ng-click="logout()" style="background-color: #FF8A80" class="button icon ion-log-out"></button>	
+ </div>
+ <ion-content class="padding has-subheader">
+  <ion-scroll direction="xy" style="height: 520px">
+   <br>
+	<div ng-if="pastList.length">
+	<div class="list card">
+	<div  class="item item-text-wrap" ng-repeat="product in pastList">
+	<div class="row">
+	<div class="col">
+	<img ng-src="{{product.img}}">
+	</div>
+	<div class="col">
+	<h2><a href="#/fulldetail/{{product.title}}" target="_blank" id="order">{{product.title}}</a></h2>
+	<p ng-if="!browser">{{product.desc | limitTo : 50}}{{product.desc.length > 50 ? '&hellip;' : ''}}</p>
+	<div ng-if="browser">
+	   <br>
+	   <br>
+	   <a href="#/order-summary/{{product.orders_id}}" target="_blank"><button class="button button-positive">{{product.orders_id}}</button></a>
+	</div>
+	</div>
+	<div ng-if="!browser" class="col col-offset-20">
+	<div class="row mydis">
+		<ionic-ratings ratingsobj='ratingsObject' index='$index'></ionic-ratings>
+	</div>
+	<br>
+	<a href="#/order-summary/{{product.orders_id}}"  target="_blank"><button class="button button-positive">{{product.orders_id}}
+	</button></a>
+	</div>
+	<div ng-if="browser" class="col">
+	<div class="row mydis">
+		<ionic-ratings ratingsobj='ratingsObject' index='$index'></ionic-ratings>
+	</div>
+	</div>
+	<!-- <a href="#/order-summary/{{product.orders_id}}" target="_blank"><button class="button button-positive">{{product.orders_id}}
+	</button></a> -->
+	</div>
+	</div>
+	</div>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	</div>
+	<div ng-if="!pastList.length" style="text-align: center;">
+	<br>
+	<br>
+	<br>
+		<img ng-src="img/empty_cart.png">
+	</div>
+	<br>
+  </ion-scroll>
+ </ion-content>
+</ion-view>

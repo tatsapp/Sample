@@ -1,0 +1,120 @@
+<ion-view ng-controller="login">
+
+<ion-header-bar class="bar-positive head" >      
+       <!-- <button ui-sref="info"  class="button button-dark icon ion-information-circled"></button>  --> 
+  	   <h1 class="title" align-title="center"><img ng-src="img/logo.jpg" id="logo" height="100%" /></h1>  
+       <button ng-hide="online" ng-click="showAlert()" style="background-color: red" class="button icon ion-alert-circled nonet"></button> 
+ </ion-header-bar>   
+
+ <div class="bar bar-subheader bar-positive">	 
+   <button ng-click="back()" style="width: 10%;max-width: 40px;" class="button button-dark icon ion-android-arrow-back"></button>	  
+	   <h2 class="title">Sample</h2>	   
+	   <button ng-click="logout()" style="background-color: #FF8A80" class="button icon ion-log-out"></button>      
+  </div>	
+
+	<ion-content class="padding has-subheader" >  
+
+	<ion-scroll direction="y" style="height: 550px"> 
+    <ion-item ng-repeat="addcheck in getad">
+   
+    <div class="col">
+    <ion-radio ng-model="addcheck.sel" ng-click="seleAdd(addcheck.add_id)">
+   {{addcheck.name}} , {{addcheck.full_address}}, {{addcheck.pincode}} , {{addcheck.phone}}
+    </ion-radio>
+    </div>
+    <div class="row">
+    	
+    <div class="col col-10">
+    	<button ng-click="deleteAdd(addcheck.add_id)" class="button button-light icon ion-trash-b"></button> 
+    </div>
+    <div class="col">
+    	<button ng-click="editAdd(addcheck)" class="button button-light icon ion-edit"></button>
+    </div>
+    </div>   
+
+    </ion-item>    
+	<br>
+	<button class="button button-positive" ng-click="ena()">Add new address</button>
+	<br>
+	<br>
+    <div ng-if="enabl">
+    	<form name="addCreate" novalidate>
+    	<div class="list">
+    	<label class="item item-input item-floating-label">
+    		<span class="input-label" style="color: #387ef5">Name*</span>
+    		<input type="text" ng-model="my.name" value="name" placeholder="Name" required>
+    	</label>
+    	<br>
+    	<label class="item item-input item-floating-label">
+    		<span class="input-label" style="color: #387ef5">Pincode*</span>
+    		<input type="tel" name="pincode" ng-model="my.pincode" pattern="[0-9]*" placeholder="Pincode" required>
+    		<span id="sp" ng-show="addCreate.$invalid">
+    		<span ng-show="addCreate.pincode.$error.pattern">Only numbers are allowed</span>
+    		</span>
+    	</label>
+    	<br>
+    	<label class="item item-input item-floating-label">
+    		<span class="input-label" style="color: #387ef5">Address*</span>
+    		<textarea ng-model="my.deladd" required placeholder="Address"></textarea>
+    	</label>
+    	<br>
+    	<label class="item item-input item-floating-label">
+    		<span class="input-label" style="color: #387ef5">Phone Number*</span>
+    		<input type="tel" name="phone" ng-model="my.phone" placeholder="Phone Number" pattern="[0-9]*" required>
+    		<span id="sp" ng-show="addCreate.$invalid">
+    			<span ng-show="addCreate.phone.$error.pattern">Only numbers are allowed</span>
+    		</span>
+    	</label>
+    	</div>
+         <button class="button button-positive" ng-click="createAdd(my)" ng-disabled="addCreate.$invalid">Save and continue</button>
+    	</form>
+    </div>
+    <div ng-if="edit">
+    	<form name="addCreate" novalidate>
+    	<div class="list">
+    	<label class="item item-input item-floating-label">
+    		<span class="input-label" style="color: #387ef5">Name*</span>
+    		<input type="text" ng-model="myEdit.name" value="name" placeholder="Name" required>
+    	</label>
+    	<br>
+    	<label class="item item-input item-floating-label">
+    		<span class="input-label" style="color: #387ef5">Pincode*</span>
+    		<input type="tel" name="pincode" ng-model="myEdit.pincode" pattern="[0-9]*" placeholder="Pincode" required>
+    		<span id="sp" ng-show="addCreate.$invalid">
+    		<span ng-show="addCreate.pincode.$error.pattern">Only numbers are allowed</span>
+    		</span>
+    	</label>
+    	<br>
+    	<label class="item item-input item-floating-label">
+    		<span class="input-label" style="color: #387ef5">Address*</span>
+    		<textarea ng-model="myEdit.deladd" required placeholder="Address"></textarea>
+    	</label>
+    	<br>
+    	<label class="item item-input item-floating-label">
+    		<span class="input-label" style="color: #387ef5">Phone Number*</span>
+    		<input type="tel" name="phone" ng-model="myEdit.phone" placeholder="Phone Number" pattern="[0-9]*" required>
+    		<span id="sp" ng-show="addCreate.$invalid">
+    			<span ng-show="addCreate.phone.$error.pattern">Only numbers are allowed</span>
+    		</span>
+    	</label>
+    	</div>
+         <button class="button button-positive" ng-click="updateAdd(myEdit)" ng-disabled="addCreate.$invalid">Update Details</button>
+    	</form>
+    </div>
+	<div class="row">
+	<div class="col">		
+	</div>
+	<div class="col">
+		<button ng-click="sendCart(ids)" class="button button-assertive">Submit Order</button>	
+	</div>
+	<div class="col">		
+	</div>
+	</div>
+	<br>
+	
+	<br>
+	<br>
+	</ion-scroll>
+	</ion-content>
+
+</ion-view>

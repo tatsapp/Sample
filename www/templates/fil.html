@@ -1,0 +1,16 @@
+<ion-view ng-controller="login">
+<ion-content class="padding">
+<ion-list>
+<label class="item item-input item-floating-label">
+	<span class="input-label" style="color: red">Name</span>
+	<input type="text" ng-model="name" clearInput name="name" placeholder="Name"/>
+</label>
+<label class="item item-input item-floating-label">
+	<span class="input-label" style="color: red">Password</span>
+	<input type="password" ng-model="pass" name="password" placeholder="Password"/>
+</label>
+<button class="button button-royal button-block" ng-click="dated(name,pass)">Sign in</button>
+<button class="button button-positive button-block" ng-click="ck(name,pass)">Register</button>
+</ion-list>
+</ion-content>
+</ion-view>

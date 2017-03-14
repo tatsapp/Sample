@@ -1,0 +1,79 @@
+<ion-view ng-controller="login">
+<ion-header-bar class="bar-positive head">
+       <!-- <button ui-sref="info"  class="button button-dark icon ion-information-circled"></button> -->
+  	   <h1 class="title" align-title="center"><img ng-src="img/logo.jpg" id="logo" height="100%" /></h1>  
+       <button ng-hide="online" ng-click="showAlert()" style="background-color: red" class="button icon ion-alert-circled nonet"></button>
+ </ion-header-bar>   
+
+ <div class="bar bar-subheader bar-positive">
+   <!-- <button ng-click="back()" style="width: 10%;max-width: 40px;" class="button button-dark icon ion-android-arrow-back"></button> -->
+	   <h2 class="title">Sample</h2>
+	   <button ng-click="logout()" style="background-color: #FF8A80" class="button icon ion-log-out"></button>
+  </div>	
+
+	<ion-content class="padding has-subheader has-footer">
+  <ion-scroll direction="y" style="height: 520px">
+  <div ng-if="chckLength">
+	<div class="list card">
+	<div  class="item item-text-wrap" ng-repeat='prod in cartItem'>
+	<div class="row">
+	<div class="col">
+	<img ng-src="{{prod.img}}">
+	</div>
+	<div class="col">
+	<h2>{{prod.title}}</h2>
+	<p>{{prod.desc | limitTo : 50}}{{prod.desc.length > 50 ? '&hellip;' : ''}}</p>
+	</div>
+	<div class="col">
+	<div class="row mydis">
+		<ionic-ratings ratingsobj='ratingsObject' index='$index'></ionic-ratings>
+	</div>
+	<br>
+	<div class="row">
+			<label class="toggle">
+		<input type="checkbox" ng-checked="true" name="need" ng-model="prod.selected" ng-click="selCart(prod.proid,prod.selected,$index)">
+				<div class="track">
+				<div class="handle"></div>
+				</div>
+			</label>
+	</div>
+	</div>
+	</div>
+	</div>
+	</div>
+  <br>
+  <br>
+  <button ng-click="addCart()" class="button button-assertive" style="margin-left:50%;">SEND</button>
+  <br>
+  <br>
+  </div>
+  <div ng-if="!chckLength" style="text-align: center;">
+    <img ng-src="img/emptycart.gif">
+  </div>
+  <br>
+  <br>
+  </ion-scroll>
+	</ion-content>
+ <ion-footer-bar>
+  <div class="tabs tabs-icon-top tabs-positive">
+
+    <a ng-click="home(hem)" class="tab-item" >
+    <!-- <a ng-click="selHome()" class="tab-item"> -->
+      <i class="icon ion-home"></i>Home
+    </a>
+    <a style="color: #18FFFF" class="tab-item" ng-model="chckLength">{{chckLength}} <!-- ng-click="cart()" -->
+      <i class="icon ion-android-cart">
+        
+      </i>Cart
+    </a>
+    <a href='#/settings' class="tab-item" > 
+      <i class="icon ion-gear-b"></i>Settings
+    </a>
+    <a href='#/history' class="tab-item"> 
+      <i class="icon ion-android-time"></i>History
+    </a>
+  </div> 
+</ion-footer-bar>
+</ion-view>
+
+

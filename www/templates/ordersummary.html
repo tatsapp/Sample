@@ -1,0 +1,62 @@
+<ion-view ng-controller="login">
+<ion-header-bar class="bar-positive head">      
+       <button ui-sref="info" id="helped" class="button button-dark icon ion-information-circled"></button>
+       <h1 class="title" align-title="center"><img ng-src="img/logo.jpg" id="logo" height="100%" /></h1>
+ </ion-header-bar> 
+ <div class="bar bar-subheader bar-positive">
+
+	   <h2 class="title">Order Detail</h2>
+  </div>
+<ion-content class="padding has-subheader">
+<ion-scroll direction="y" style="height: 520px">
+<div class="list card">
+<div class="item item-text-wrap" style="border-color: #A1887F;" ng-repeat="product in pastList | filter: {orders_id : one}"> 
+<div class="row" >
+	<span style="color: #00BFA5"><b>Order Details</b></span>
+</div>
+<pre>
+	<span style="color: #387ef5">Order Id: </span>{{product.orders_id}}
+	<span style="color: #387ef5">Order Date: </span>{{product.orderdate}}
+</pre>
+</div>	
+</div>
+<div class="list card" ng-repeat="prod in pastList">
+<div class="item item-text-wrap" style="border-color: #A1887F" ng-repeat="product in address | filter: { add_id : prod.addres_id }">
+<div class="row">
+	<span style="color: #00BFA5"><b>Delivery Details</b></span>
+</div> 
+<pre>
+    	<span style="color: #387ef5">Name: </span>{{product.name}}
+    	<span style="color: #387ef5">Address: </span>{{product.full_address}}    
+    	<span style="color: #387ef5">Pincode: </span>{{product.pincode}}  
+    	<span style="color: #387ef5">Mobile: </span>{{product.phone}}
+  </pre>  
+</div>	
+</div>
+<div class="list card">
+<div class="item item-text-wrap" style="border-color: #A1887F" ng-repeat="product in pastList | filter: {orders_id : one}"> 
+<div class="row">
+	<span style="color: #00BFA5"><b>Product Details</b></span>
+</div>
+<br>
+<br>
+<br>
+<div class="row">
+	<div class="col">
+	<img ng-src="{{product.img}}">
+	</div>
+	<div class="col">
+	<h2>{{product.title}}</h2>
+	<p>{{product.desc | limitTo : 50}}{{product.desc.length > 50 ? '&hellip;' : ''}}</p>
+	</div>
+	<div class="col">	    
+		<div class="row mydis">
+		<ionic-ratings ng-disabled="true" ratingsobj='ratingsObject' index='$index'></ionic-ratings>
+		</div>
+	</div>	
+   </div>
+</div>	
+</div>
+</ion-scroll>
+</ion-content>
+</ion-view>

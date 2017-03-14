@@ -1,0 +1,56 @@
+<ion-view>
+<ion-header-bar class="bar-positive head">
+       <button ui-sref="info"  class="button button-dark icon ion-information-circled"></button>  
+  	   <h1 class="title" align-title="center"><img src="img/logo.jpg" id="logo" height="100%" /></h1>  
+       <button ng-click="showAlert()" ng-hide="online" class="button button-energized icon ion-alert-circled"></button> 
+</ion-header-bar>   
+<div class="bar bar-subheader bar-positive " >	 
+	  <button ng-click="home(null)" style="width: 10%;max-width: 40px;" class="button button-dark icon ion-android-arrow-back"></button>
+	   <h2 class="title">Product Detail</h2>
+	   <button ng-click="logout()" style="background-color: #FF8A80" class="button icon ion-log-out"></button>
+	  </div>
+<ion-content class="padding has-subheader">
+            <div ng-repeat="item in proDetails | filter : {title : one}">
+			<div class="row">
+			<div class="col col-offset-40">
+			<button class="button button-positive" ng-click="sel(item.proid)">Add to Cart</button>
+			</div>
+	        </div>
+           <ion-slide-box ng-click="nextSlide()">
+          <ion-slide class="col text-center">
+          <img src="{{item.img}}">
+          </ion-slide>
+          <ion-slide class="col text-center">
+          <img src="img/fb.png">
+          </ion-slide>
+          <ion-slide class="col text-center">
+          <img src="img/ig.png">
+          </ion-slide>
+          </ion-slide-box>
+          <div class="list card">
+          <h1>{{item.title}}</h1>
+          <div class="item item-text-wrap">{{item.desc}}
+          </div>
+          </div>
+          </div>
+  </ion-content>
+  <ion-footer-bar>
+  <div class="tabs tabs-icon-top tabs-positive">
+
+  	<a style="color: #18FFFF" class="tab-item" > <!-- ng-click="home()" -->
+  		<i class="icon ion-home"></i>Home
+  	</a>
+
+  	<a ng-click="cart(intes)" class="tab-item" ng-model="chckLength">{{chckLength}}
+      <i class="icon ion-android-cart"></i>Cart
+    </a>
+  	
+  	<a ng-click="settings(intes)" class="tab-item" > 
+  		<i class="icon ion-gear-b"></i>Settings
+  	</a>
+  	<a ng-click="history(intes)" class="tab-item"> 
+  		<i class="icon ion-android-time"></i>History
+  	</a>
+  </div> 
+</ion-footer-bar>
+ </ion-view>

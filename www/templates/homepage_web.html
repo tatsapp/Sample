@@ -1,0 +1,108 @@
+<ion-view ng-controller="login">
+<ion-header-bar class="bar-positive head" >
+      
+       <button ui-sref="info"  class="button button-dark icon ion-information-circled"></button>  
+  	   <h1 class="title" align-title="center"><img ng-src="img/logo.jpg" id="logo" height="100%" /></h1>  
+       <button ng-hide="online" ng-click="showAlert()" style="background-color: red" class="button icon ion-alert-circled nonet"></button> 
+
+ </ion-header-bar>   
+
+ <div class="bar bar-subheader bar-positive">
+	 
+	  <button ui-sref="filter" style="background-color: #FF8A80;" class="button icon ion-funnel"></button>
+	   <h2 class="title">Sample</h2>
+	   <button ng-click="logout()" style="background-color: #FF8A80" class="button icon ion-log-out"></button>
+      
+  </div>	
+
+	<ion-content class="padding has-subheader has-footer" ng-init="loc()">
+	<ion-refresher on-refresh="refresh()"></ion-refresher>
+	<!-- <ion-scroll direction="y"> -->
+   <!--  <div showWhen="android" style="color: red;text-align: center;" ng-model="intes">Your location : {{location}} </div> -->
+    <!-- <button onclick="cavex()" class="button button-clear button-dark icon ion-trash-b"></button> -->
+    <!-- <div style="color: red">You have selected : {{chckLength}} items</div> -->
+	<div id="hsel" class="list card">
+	<div  class="item item-text-wrap" ng-repeat='product in proDetails | cartFilter:intes:"title" | limitTo:lf' >
+  <div class="row">
+	<div class="col">
+	<img ng-src="{{product.img}}">
+	</div>
+	<div class="col">
+	<h2>{{product.title}}</h2>
+	<p>{{product.desc | limitTo : 50}}{{product.desc.length > 50 ? '&hellip;' : ''}}</p>
+	</div>
+	<div class="col">
+		
+	    
+		<div class="row mydis">
+		<ionic-ratings ng-disabled="true" ratingsobj='ratingsObject'></ionic-ratings>
+		</div>
+		<br>
+		<div class="row">
+		<button ng-click="deletePro(product.title)" class="button button-light icon ion-trash-b"></button> 
+		</div>
+		<!-- <i class="icon ion-trash-b"></i> -->
+		
+		
+	</div>
+
+	<div class="col">	
+        
+		<button class="button button-positive" ng-click="sel(product.title)">Add to Cart</button>
+		
+	</div>
+	
+   
+	
+	</div>
+	
+	</div>
+	</div>
+
+	<div class="row">
+
+	<div class="col col-offset-50">
+		<button ng-click="load()" style="text-align: center;" class="button button-outline button-positive">Load More..... <!-- <i class="icon ion-load-a"></i> --></button>
+	</div>
+		
+	</div>
+	<!-- </ion-scroll> -->
+	</ion-content>
+
+<!-- <ion-footer-bar>
+   <ion-tabs class="tabs-icon-top"  >
+   <ion-tab ui-sref='homepage' icon="ion-home" title="Home" ></ion-tab>
+   <ion-tab ui-sref='cart' icon="ion-android-cart" ng-controller="login" ng-model="data.selectedList" badge="data.selectedList" title="Cart"></ion-tab>
+   <ion-tab ui-sref='settings' icon="ion-gear-b" title="Settings" ></ion-tab>
+   <ion-tab ui-sref='history' icon="ion-android-time" title="History" ></ion-tab>
+   </ion-tabs>	
+</ion-footer-bar> -->
+
+ <ion-footer-bar>
+  <div class="tabs tabs-icon-top tabs-positive">
+
+  	<a style="color: #18FFFF" class="tab-item" > <!-- ng-click="home()" -->
+  		<i class="icon ion-home"></i>Home
+  	</a>
+
+  	<a ng-click="cart()" class="tab-item" ng-model="chckLength">{{chckLength}}
+      <i class="icon ion-android-cart"></i>Cart
+    </a>
+  	
+  	<a ng-href='#/settings/{{selectd}}' class="tab-item" > 
+  		<i class="icon ion-gear-b"></i>Settings
+  	</a>
+  	<a ng-href='#/history/{{selectd}}' class="tab-item"> 
+  		<i class="icon ion-android-time"></i>History
+  	</a>
+  </div> 
+  <!-- <ion-tabs class="tabs-icon-top tabs-positive"  >
+   <ion-tab ng-click="home()" icon="ion-home" title="Home" ></ion-tab>
+   <ion-tab ng-click="cart()" icon="ion-android-cart" ng-model="chckLength" badge="chckLength" title="Cart"></ion-tab>
+   <ion-tab href='#/settings/{{selectd}}' icon="ion-gear-b" title="Settings" ></ion-tab>
+   <ion-tab href='#/history/{{selectd}}' icon="ion-android-time" title="History" ></ion-tab>
+   </ion-tabs> -->
+</ion-footer-bar>
+</ion-view>
+
+

@@ -1,0 +1,115 @@
+a#order:link{
+  text-decoration: none;
+  color: black;
+}
+
+a#order:visited{
+  text-decoration: none;
+  color: black;
+}
+
+a#order:hover{
+  color: #6200EA;
+  text-decoration: underline;
+}
+
+a#order:active{
+  color: #6200EA;
+  text-decoration: underline;
+}
+
+#div1{
+  margin-top: 20px;
+}
+
+.title.header{
+  color: #FFFFFF;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.header{
+  
+  border: none;
+  border-radius: 5px;
+}
+
+#bh{
+  background-color: #B2DFDB;
+}
+
+#bhg{
+  height: 5px;
+}
+
+.mydis{
+    pointer-events:none;
+}
+
+.popup-body{
+  background-color: #F5F5F5;
+}
+
+.po-head{
+  color: red;
+  /*background-color: grey;*/
+}
+
+.popup-head {
+  background: #387ef5  !important;
+}
+
+
+.popup-buttons .button{
+background: #387ef5  !important;
+}
+
+#sp{
+   color: red !important;
+}
+
+.my-custom-popup .popup{
+          width: 50%;
+          height: 50%;
+    
+}
+
+.share  .popup{
+
+  width: 5%;
+  height: 40%;
+}
+
+.non{
+  top: 50%;
+  transform:translateY(50%);
+}
+
+#anim{
+ position: relative;
+ animation-name: home;
+ animation-duration: 5s;
+ animation-iteration-count: 10;
+ animation-direction: alternate; 
+}
+
+@keyframes home{
+  0%    {left: 0%;top: 0%}
+  25%   {left: 80%;top: 0%}
+  50%   {left: 80%;top: 20%}
+  75%   {left: 0%;top: 20%}
+  100%  {left: 0%;top: 0%}
+}
+
+.tncpop .popup{
+  width: 60%;
+  height: 80%;
+}
+
+/*.scroll-view{
+position: absolute;
+top: 0;
+bottom: 0;
+left: 0;
+right: 0;
+}*/

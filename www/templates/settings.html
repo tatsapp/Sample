@@ -1,0 +1,71 @@
+<ion-view ng-controller="login">
+<ion-header-bar class="bar-positive head" >
+      
+       <button ui-sref="info"  class="button button-dark icon ion-information-circled"></button>  
+  	   <h1 class="title" align-title="center"><img ng-src="img/logo.jpg" id="logo" height="100%" /></h1>  
+       <button ng-hide="online" ng-click="showAlert()"  class="button button-energized icon ion-alert-circled nonet"></button> 
+
+ </ion-header-bar>   
+
+ <div class="bar bar-subheader bar-positive">
+	 
+	  <!-- <button ng-click="back()" style="width: 10%;max-width: 40px;" class="button button-dark icon ion-android-arrow-back"></button> -->
+	   <h2 class="title">Settings</h2>
+	   <!-- <button ng-click="filter()" style="background-color: #FF8A80;margin-left: 90%;" class="button icon ion-funnel"></button> -->
+	   <button ng-click="logout()" style="background-color: #FF8A80" class="button icon ion-log-out"></button>
+      
+  </div>	
+
+<ion-content class="padding has-subheader has-footer">
+<ion-card>
+<ion-item ng-click="userDetails()" style="text-align: center; border-radius: 10px;border-color: #A1887F">
+	<button class="button button-light">Profile</button>
+</ion-item>
+<br>
+<br>
+<br>
+<ion-item ng-click="getInterests()"  style="text-align: center;border-radius: 10px;border-color: #A1887F">
+	<button class="button button-light">Interests</button>
+</ion-item>
+<br>
+<br>
+<br>
+
+<ion-item ng-click="shareApp()" style="text-align: center;border-radius: 10px;border-color: #A1887F">
+	<button  class="button button-light">Share</button>
+</ion-item>
+<br>
+<br>
+<br>
+<a onclick="window.open('http://www.w3schools.com/','_system','location=no')">
+<ion-item style="text-align: center;border-radius: 10px;border-color: #A1887F">
+	<button class="button button-light">App Review on Play Store</button>
+</ion-item>
+</a>
+<br>
+<br>
+<br>
+</ion-card>
+
+</ion-content>
+<ion-footer-bar>
+  <div class="tabs tabs-icon-top tabs-positive">
+
+    <a ng-click="home(hem)" class="tab-item" >
+      <i class="icon ion-home"></i>Home
+    </a>
+    <a ng-click="cart()" class="tab-item" ng-model="chckLength">{{chckLength}}
+      <!-- <span class="badge badge-assertive"></span> -->
+      <i class="icon ion-android-cart">
+        
+      </i>Cart
+    </a>
+    <a style="color: #18FFFF" class="tab-item" >  <!-- href='#/settings/{{chose}}' -->
+      <i class="icon ion-gear-b"></i>Settings
+    </a>
+    <a href='#/history' class="tab-item"> 
+      <i class="icon ion-android-time"></i>History
+    </a>
+  </div> 
+</ion-footer-bar>
+</ion-view>

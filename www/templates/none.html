@@ -1,0 +1,48 @@
+<ion-view ng-controller="login">
+<ion-header-bar class="bar-positive head" >
+      
+       <button ui-sref="info"  class="button button-dark icon ion-information-circled"></button>  
+  	   <h1 class="title" align-title="center"><img ng-src="img/logo.jpg" id="logo" height="100%" /></h1>  
+       <button ng-hide="online" ng-click="showAlert()" style="background-color: red" class="button icon ion-alert-circled nonet"></button> 
+
+ </ion-header-bar>   
+
+ <div class="bar bar-subheader bar-positive">
+	 
+	  <button ng-click="filterSelect()" style="background-color: #FF8A80;" class="button icon ion-funnel"> 
+    </button>
+	   <h2 class="title">Sample</h2>
+	   <button ng-click="logout()" style="background-color: #FF8A80" class="button icon ion-log-out"></button>
+      
+  </div>	
+
+	<ion-content class="padding has-subheader has-footer">
+	
+	<div class="col col-offset-20 non">		
+	<img ng-src="img/none.png">
+	</div>
+
+	</ion-content>
+
+ <ion-footer-bar>
+  <div class="tabs tabs-icon-top tabs-positive">
+
+  	<a style="color: #18FFFF" class="tab-item" > <!-- ng-click="home()" -->
+  		<i class="icon ion-home"></i>Home
+  	</a>
+
+  	<a ng-click="cart(intes)" class="tab-item" ng-model="chckLength">{{chckLength}}
+      <i class="icon ion-android-cart"></i>Cart
+    </a>
+  	
+  	<a ng-click="settings(intes)" class="tab-item" > 
+  		<i class="icon ion-gear-b"></i>Settings
+  	</a>
+  	<a ng-click="history(intes)" class="tab-item"> 
+  		<i class="icon ion-android-time"></i>History
+  	</a>
+  </div> 
+</ion-footer-bar>
+</ion-view>
+
+

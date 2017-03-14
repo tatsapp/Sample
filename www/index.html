@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Security-Policy" content="default-src *; script-src 'self' 'unsafe-inline' 'unsafe-eval' *; style-src  'self' 'unsafe-inline' *">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <meta name="google-signin-client_id"
+     content="552523064-naa5v5mt18pk4rbv4veutjqsgc3tc70v.apps.googleusercontent.com">
+    <title>Sample</title>
+    <link rel="manifest" href="manifest.json">
+    <link rel="me" href="https://twitter.com/twitterdev">
+    <link href="css/ionic.app.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <script src="lib/ionic/js/ionic.bundle.js"></script>
+    <script src="js/ng-cordova.min.js"></script>
+    <script src="cordova.js"></script>
+    <script src="lib/firebase/firebase.js"></script>
+    <script src="lib/angularfire/dist/angularfire.min.js"></script>
+    <script src="lib/ng-cordova-oauth/dist/ng-cordova-oauth.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/starter.services.js"></script>
+    <script src="lib/jsSHA/src/sha1.js"></script>
+    <script src="lib/ionic-ratings/src/ionic-ratings.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/3.6.4/firebase.js"></script>
+    <script>  
+        var config = {
+           apiKey: "AIzaSyCZxD6TR3p1td7WH56lztqIM8XqIiB25r0",
+           authDomain: "sample-2a3b8.firebaseapp.com",
+           databaseURL: "https://sample-2a3b8.firebaseio.com",
+           storageBucket: "sample-2a3b8.appspot.com",
+           messagingSenderId: "221300770600"
+           };
+        firebase.initializeApp(config);
+        var database = firebase.database();
+    </script>
+  </head>
+
+  <body ng-app="starter">
+        <div id="fb-root"></div>
+        <script>(function(d, s, id) {
+             window.fbAsyncInit = function()
+              {
+               FB.init
+                 ({
+                    appId   : '235240500249831',
+                    status  : true,
+                    cookie  : true,
+                    xfbml   : true,
+                    oauth   : true,
+                    version : 'v2.8'
+                 });
+               };
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s); 
+            js.id = id;
+            js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.8&appId=235240500249831";
+            fjs.parentNode.insertBefore(js, fjs);
+            }(document, 'script', 'facebook-jssdk'));
+        </script>
+        <script>window.twttr = (function(d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0],
+            t = window.twttr || {};
+            if (d.getElementById(id)) return t;
+            js = d.createElement(s);
+            js.id = id;
+            js.src = "https://platform.twitter.com/widgets.js";
+            fjs.parentNode.insertBefore(js, fjs);
+            t._e = [];
+            t.ready = function(f){
+            t._e.push(f);
+            };
+            return t;
+            }(document, "script", "twitter-wjs"));
+        </script>
+        <script src="https://apis.google.com/js/platform.js" async defer></script>
+        <ion-nav-view></ion-nav-view>
+  </body>
+  
+</html>
